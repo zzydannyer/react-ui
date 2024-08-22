@@ -1,3 +1,21 @@
 node_modules
-pnpm-lock.yaml
+.DS_Store
+.vscode
 .idea
+**/build
+**/dist
+**/es
+
+# dumi
+**/.dumi
+**/tmp
+**/docs-dist
+
+.turbo
+
+.cspellcache
+
+pnpm-lock.yaml
+yarn.lock
+
+node_modules/

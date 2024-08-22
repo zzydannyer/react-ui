@@ -1,5 +1,7 @@
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
+    extends: ['@commitlint/config-conventional'],
+    parserPreset: 'conventional-changelog-conventionalcommits',
     prompt: {
         alias: { fd: 'docs: fix typos' },
         rules: {},

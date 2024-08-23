@@ -1,42 +1,60 @@
 {
-  "name": "ui",
-  "version": "0.0.2",
-  "description": "组件库",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:es": "eslint --fix",
-    "lint:style": "stylelint \"(packages|apps)/**/*.css\"",
-    "lint": "npm run lint:es && npm run lint:style",
-    "spellcheck": "cspell lint --dot --gitignore --color --cache --show-suggestions \"(packages|apps)/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md)\"",
-    "prepare": "husky",
-    "commit": "git-cz"
-  },
-  "keywords": [],
-  "author": "RCBar",
-  "license": "ISC",
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-git"
+    "name": "ui",
+    "version": "0.0.2",
+    "description": "组件库",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint:es": "eslint --fix",
+        "lint:style": "stylelint \"(packages|apps)/**/*.css\"",
+        "lint": "npm run lint:es && npm run lint:style",
+        "spellcheck": "cspell lint --dot --gitignore --color --cache --show-suggestions \"(packages|apps)/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md)\"",
+        "prepare": "husky",
+        "commit": "git-cz"
+    },
+    "keywords": [],
+    "author": "RCBar",
+    "license": "ISC",
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-git"
+        }
+    },
+    "lint-staged": {
+        "*.{md,json}": [
+            "prettier --cache --write --no-error-on-unmatched-pattern"
+        ],
+        "*.{css,less}": [
+            "stylelint --fix",
+            "prettier --cache --write"
+        ],
+        "*.{js,jsx}": [
+            "eslint --fix",
+            "prettier --cache --write"
+        ],
+        "*.{ts,tsx}": [
+            "eslint --fix",
+            "prettier --cache --parser=typescript --write"
+        ]
+    },
+    "devDependencies": {
+        "@commitlint/cli": "19.4.0",
+        "@commitlint/config-conventional": "19.2.2",
+        "@eslint/js": "9.9.0",
+        "commitizen": "4.3.0",
+        "commitlint": "19.4.0",
+        "cspell": "8.14.2",
+        "cz-git": "1.9.4",
+        "eslint": "9.9.0",
+        "eslint-plugin-react": "^7.35.0",
+        "eslint-plugin-simple-import-sort": "12.1.1",
+        "globals": "^15.9.0",
+        "husky": "^9.1.5",
+        "lint-staged": "^15.2.9",
+        "postcss-styled-syntax": "^0.6.4",
+        "stylelint": "16.8.2",
+        "stylelint-config-standard": "^36.0.1",
+        "typescript": "5.5.4",
+        "typescript-eslint": "8.2.0"
     }
-  },
-  "devDependencies": {
-    "@eslint/js": "9.9.0",
-    "commitizen": "4.3.0",
-    "commitlint": "19.4.0",
-    "cspell": "8.14.2",
-    "cz-git": "1.9.4",
-    "eslint": "9.9.0",
-    "eslint-plugin-react": "^7.35.0",
-    "globals": "^15.9.0",
-    "husky": "^9.1.5",
-    "postcss-styled-syntax": "^0.6.4",
-    "stylelint": "16.8.2",
-    "stylelint-config-standard": "^36.0.1",
-    "typescript": "5.5.4",
-    "typescript-eslint": "8.2.0",
-    "eslint-plugin-simple-import-sort": "12.1.1",
-    "@commitlint/cli": "19.4.0",
-    "@commitlint/config-conventional": "19.2.2"
-  }
 }
